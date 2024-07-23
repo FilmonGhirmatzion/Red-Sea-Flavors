@@ -1,16 +1,16 @@
 <div class="container">
   <div class="filters">
-    <a class="button">Vegetarian Dishes</a>
-    <a class="button">Meat Dishes</a>
-    <a class="button">Seafood Dishes</a>
-    <a class="button">Appetizers</a>
-    <a class="button">Kids Menu</a>
-    <a class="button">Drinks</a>
-    <a class="button">All</a>
+    <a class="button"(click)="filter='Vegetarian Dishes'">Vegetarian Dishes</a>
+    <a class="button"(click)="filter='Meat Dishes'">Meat Dishes</a>
+    <a class="button"(click)="filter='Drinks'">Drinks</a>
+    <a class="button"(click)="filter='Seafood Dishes'">Seafood Dishes</a>
+    <a class="button"(click)="filter='Appetizers'">Appetizers</a>
+    <a class="button"(click)="filter='Kids Menu'">Kids Menu</a>
+    <a class="button"(click)="filter=''">All</a>
   </div>
 
   <ul class="products">
-    <li class="product-item" *ngFor="let product of products">
+    <li class="product-item" *ngFor="let product of getFilteredProducts()">
       <div class="product">
         <div class="product-details">
           <img [src]="getImageUrl(product)" [alt]="product.name" />
