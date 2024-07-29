@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-catalog',
@@ -10,7 +11,7 @@ export class CatalogComponent {
       products: IProduct[];
       filter: string = '';
 
-      constructor(){
+      constructor(private carSvc: CartService){
         this.products=[
           {
             id: 1,
@@ -97,6 +98,9 @@ export class CatalogComponent {
       return '/assets/images/food-items/' + product.imageName;
 
     }
+     addToCart(product: IProduct){
+       this.carSvc.add(product);
+     }
 
     getFilteredProducts() {
       return this.filter === ''
