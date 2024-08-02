@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product.model';
 import { CartService } from '../cart.service';
 import { ProductService } from './product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -14,7 +15,9 @@ export class CatalogComponent {
 
       constructor(
         private carSvc: CartService,
-        private productSvc: ProductService)
+        private productSvc: ProductService,
+        private router: Router
+      )
         {}
 
       ngOnInit() {
@@ -25,6 +28,7 @@ export class CatalogComponent {
 
      addToCart(product: IProduct){
        this.carSvc.add(product);
+       this.router.navigate(['/cart']);
      }
       // getImageUrl(product: IProduct){
     //   return '/assets/images/food-items/' + product.imageName;
