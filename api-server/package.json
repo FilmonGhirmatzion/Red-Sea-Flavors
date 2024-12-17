@@ -9,6 +9,7 @@
   "author": "Filmon",
   "license": "ISC",
   "dependencies": {
+    "angular-fundamentals-api-server": "file:",
     "body-parser": "^1.20.0",
     "express": "^4.17.3"
   }
